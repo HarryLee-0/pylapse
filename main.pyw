@@ -85,7 +85,8 @@ tray = Icon("Timelapse", TRAY_IDLE_IMAGE)
 menu = Menu(
     MenuItem("Start", timelapse.start),
     MenuItem("Stop", timelapse.stopReset),
-    MenuItem("Save and Quit", timelapse.quit)
+    MenuItem("Save and Quit", timelapse.quit),
+    MenuItem("Save Folder", lambda: os.startfile(OUT_SAVE_DIR(None)))
 )
 tray.menu=menu
 
