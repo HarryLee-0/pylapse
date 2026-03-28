@@ -9,5 +9,5 @@ OUT_SAVE_DIR = lambda x: os.path.join("out") if x==None else os.path.join("out",
 
 
 FPTS = 30 # frames per timelapse second
-RSPF = 0.5 # real seconds between frames
+RSPF = 2 # real seconds between frames
 print("SETTINGS: [INFO] 1 timelapse second is {} real seconds".format(RSPF*FPTS))

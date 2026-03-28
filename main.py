@@ -72,6 +72,10 @@ class Timelapse:
 
         self.videoDir = None
         self.frames = 0
+    
+    def quit(self):
+        self.stopReset()
+        tray.stop()
 
 
 timelapse = Timelapse()
@@ -80,11 +84,12 @@ tray = Icon("Timelapse", TRAY_IDLE_IMAGE)
 
 menu = Menu(
     MenuItem("Start", timelapse.start),
-    MenuItem("Stop", timelapse.stopReset)
+    MenuItem("Stop", timelapse.stopReset),
+    MenuItem("Save and Quit", timelapse.quit)
 )
 tray.menu=menu
 
-tray.title = "ready {:02f}RSPF @{}FPTS".format(RSPF, FPTS)
+tray.title = "ready {}RSPF @{}FPTS".format(round(RSPF*100)/100, FPTS)
 timelapse.tray = tray
 
 tray.run()
